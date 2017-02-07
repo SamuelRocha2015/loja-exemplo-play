@@ -1,0 +1,30 @@
+@(lista: List[Produto]) 
+
+@main("Welcome to Play") {
+	<h1>Produtos</h1>
+	
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Titulo</th>
+				<th>Tipo</th>
+				<th>Preco</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+		@for(produto <- lista) {
+			<tr>
+			
+			  <td>@produto.getId()</td>
+			  <td>@produto.getTitulo()</td>
+			  <td>@produto.getTipo()</td>
+			  <td>@produto.getPreco()</td>
+			  </tr>
+			}
+			
+		</tbody>
+	</table>
+}

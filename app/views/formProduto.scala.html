@@ -1,0 +1,15 @@
+@(formulario: DynamicForm)
+
+@main("Welcome to Play") {
+	@helper.form(play.api.mvc.Call.apply("post", "/produto/novo", null)) {
+        <h1>Cadastrar novo produto</h1>
+	        
+		@helper.inputText(formulario("titulo"))
+		@helper.inputText(formulario("codigo"))
+		@helper.inputText(formulario("tipo"))
+		@helper.textarea(formulario("descricao"))
+		@helper.inputText(formulario("preco"), 'type -> "number")
+		<input type="submit" value="Cadastrar">
+				
+   }
+}
