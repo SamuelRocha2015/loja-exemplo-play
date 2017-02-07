@@ -1,49 +1,39 @@
-This is your new Play application
-=================================
-
-This file will be packaged with your application when using `activator dist`.
-
-There are several demonstration files available in this template.
+================================================================
+Exemplo simples de aplicação usando Play FrameWork
+================================================================
 
 Controllers
-===========
+========================================
+- ApiController.java:
+- ProdutoController.java:
 
-- HomeController.java:
+Routes
+========================================
 
-  Shows how to handle simple HTTP requests.
+GET  	/produto/novo 				controllers.ProdutoController.form
+POST 	/produto/novo 				controllers.ProdutoController.salva
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET  	/							controllers.ProdutoController.lista
+#API
+GET  	/api/produtos 				controllers.ApiController.api
+GET  	/api/produtos/tipo/:tipo 	controllers.ApiController.apiTipo(tipo)
 
-- AsyncController.java:
+#Exemplo de Uso:
 
-  Shows how to do asynchronous programming when handling a request.
+#Raiz (pagina inicial):
+http://localhost:9000
 
-- CountController.java:
+#Cadastro de novo produto :
+http://localhost:9000/produto/novo
 
-  Shows how to inject a component into a controller and use the component when
-  handling requests.
+#Retornando um JSon com todos os livros :
+http://localhost:9000/api/produtos
 
-Components
-==========
+#Retornando um JSon com os livros a partir de um determinado tipo :
+http://localhost:9000/api/produtos/tipo/livro
+http://localhost:9000/api/produtos/tipo/e-book
 
-- Module.java:
-
-  Shows how to use Guice to bind all the components needed by your application.
-
-- Counter.java:
-
-  An example of a component that contains state, in this case a simple counter.
-
-- ApplicationTimer.java:
-
-  An example of a component that starts when the application starts and stops
-  when the application stops.
-
-Filters
-=======
-
-- Filters.java:
-
-  Creates the list of HTTP filters used by your application.
-
-- ExampleFilter.java
-
-  A simple filter that adds a header to every response.
+Database
+========================================
+- Banco de Dados MySQL
+- ORM Ebean
